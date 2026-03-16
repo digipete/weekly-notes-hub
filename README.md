@@ -1,73 +1,95 @@
-# Welcome to your Lovable project
+# Weeknotes
 
-## Project info
+A simple, static weeknotes site built with Vite, React, TypeScript, and Tailwind CSS. Weeknotes are authored as Markdown files and deployed to GitHub Pages.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Quick start
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open [http://localhost:8080](http://localhost:8080) to see the site.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Publishing a new weeknote
 
-**Use GitHub Codespaces**
+1. Copy `content/weeknotes/_template.md` to a new file, e.g. `content/weeknotes/weeknote-3.md`
+2. Fill in the frontmatter (title, date, slug, summary) and write your content in Markdown
+3. Set `draft: false` when the note is ready to publish
+4. Commit and push to `main` — GitHub Actions will build and deploy automatically
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Frontmatter fields
 
-## What technologies are used for this project?
+| Field     | Required | Description                                         |
+| --------- | -------- | --------------------------------------------------- |
+| `title`   | Yes      | The weeknote title                                  |
+| `date`    | Yes      | Publication date in `YYYY-MM-DD` format             |
+| `slug`    | Yes      | URL slug (used in `/weeknotes/:slug`)               |
+| `summary` | No       | Short description; auto-generated from content if omitted |
+| `draft`   | No       | Set to `true` to hide from production builds        |
+| `tags`    | No       | JSON array of tags, e.g. `["delivery", "platform"]` |
 
-This project is built with:
+## Building for production
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+npm run build
+```
 
-## How can I deploy this project?
+Static files are output to `dist/`. The build also generates:
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+- `404.html` — a copy of `index.html` for GitHub Pages SPA routing
+- `feed.xml` — an RSS feed of all published weeknotes
 
-## Can I connect a custom domain to my Lovable project?
+## Deploying to GitHub Pages
 
-Yes, you can!
+### Automatic (recommended)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. Push your code to a GitHub repository
+2. Go to **Settings → Pages** and set the source to **GitHub Actions**
+3. Push to `main` — the included workflow (`.github/workflows/deploy.yml`) will build and deploy
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Base path
+
+If deploying as a **project site** (e.g. `username.github.io/repo-name`):
+
+1. Open `src/config/site.ts`
+2. Set `basePath` to `"/repo-name/"`
+3. Update `url` to `"https://username.github.io/repo-name"`
+
+For **user/org sites** (e.g. `username.github.io`), leave `basePath` as `"/"`.
+
+## Project structure
+
+```
+content/weeknotes/       # Markdown weeknote files
+  _template.md            # Template for new notes
+  weeknote-1.md           # Example note
+  weeknote-2.md           # Example note
+src/
+  components/             # Shared React components
+  config/site.ts          # Site branding & configuration
+  lib/content.ts          # Markdown loading & parsing
+  pages/                  # Route pages
+.github/workflows/        # GitHub Actions deploy workflow
+```
+
+## Branding
+
+All site branding is controlled from `src/config/site.ts`. Colours and typography are defined in `src/index.css` and `tailwind.config.ts`.
+
+## RSS
+
+The RSS feed is generated at build time and available at `/feed.xml`. It includes all published (non-draft) weeknotes.
+
+## Local development
+
+```bash
+npm install     # Install dependencies
+npm run dev     # Start dev server at localhost:8080
+npm run build   # Production build to dist/
+npm run preview # Preview the production build locally
+```
+
+## License
+
+MIT
