@@ -20,9 +20,10 @@ export const siteConfig = {
    * Base path for GitHub Pages project hosting.
    * Set to "/" for user/org sites (username.github.io)
    * Set to "/repo-name/" for project sites (username.github.io/repo-name)
+   * Set to "/" for custom domains
    */
   basePath: "/",
 
   /** Full URL of the deployed site — used for RSS feed links */
-  url: "https://example.github.io/weeknotes",
+  url: "https://weeknote.hallett.life",
 } as const;
