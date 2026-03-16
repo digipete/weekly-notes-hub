@@ -48,15 +48,30 @@ Static files are output to `dist/`. The build also generates:
 2. Go to **Settings → Pages** and set the source to **GitHub Actions**
 3. Push to `main` — the included workflow (`.github/workflows/deploy.yml`) will build and deploy
 
-### Base path
+### Base path and URL
 
-If deploying as a **project site** (e.g. `username.github.io/repo-name`):
+The settings in `src/config/site.ts` control routing and links:
 
-1. Open `src/config/site.ts`
-2. Set `basePath` to `"/repo-name/"`
-3. Update `url` to `"https://username.github.io/repo-name"`
+| Deployment type | `basePath` | `url` |
+|-----------------|------------|-------|
+| **Custom domain** (e.g. `example.com`) | `"/"` | `"https://example.com"` |
+| **User/org site** (e.g. `username.github.io`) | `"/"` | `"https://username.github.io"` |
+| **Project site** (e.g. `username.github.io/repo-name`) | `"/repo-name/"` | `"https://username.github.io/repo-name"` |
 
-For **user/org sites** (e.g. `username.github.io`), leave `basePath` as `"/"`.
+### Custom domain
+
+To use a custom domain like `weeknote.hallett.life`:
+
+1. Update `src/config/site.ts` — set `url` to your custom domain and `basePath` to `"/"`
+2. In your GitHub repo, go to **Settings → Pages**
+3. Under "Custom domain", enter your domain and save
+4. Add DNS records at your domain provider:
+   - **A records** for `@` pointing to GitHub Pages IPs:
+     - 185.199.108.153
+     - 185.199.109.153
+     - 185.199.110.153
+     - 185.199.111.153
+   - Or a **CNAME** record for `www` pointing to `username.github.io`
 
 ## Project structure
 
