@@ -47,6 +47,12 @@ function staticSitePlugin(): Plugin {
       isProd = config.mode === "production";
     },
     closeBundle() {
+      // 0. Copy CNAME into dist for GitHub Pages custom domain
+      const cnameFile = path.resolve("CNAME");
+      if (fs.existsSync(cnameFile)) {
+        fs.copyFileSync(cnameFile, path.join(outDir, "CNAME"));
+      }
+
       // 1. Copy index.html → 404.html for GitHub Pages SPA routing
       const indexHtml = path.join(outDir, "index.html");
       if (fs.existsSync(indexHtml)) {
