@@ -137,6 +137,19 @@ export function getAdjacentWeeknotes(slug: string) {
   };
 }
 
+/** Get all unique tags from published weeknotes, sorted by frequency (descending). */
+export function getAllTags(): string[] {
+  const counts = new Map<string, number>();
+  for (const note of getPublishedWeeknotes()) {
+    for (const tag of note.tags) {
+      counts.set(tag, (counts.get(tag) || 0) + 1);
+    }
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([tag]) => tag);
+}
+
 /** Format a date string as "13 March 2026". */
 export function formatDate(dateStr: string): string {
   const d = new Date(dateStr + "T00:00:00");
@@ -145,4 +158,13 @@ export function formatDate(dateStr: string): string {
     month: "long",
     year: "numeric",
   });
+}
+
+/** Format a date string as "06-03-2026". */
+export function formatDateShort(dateStr: string): string {
+  const d = new Date(dateStr + "T00:00:00");
+  const dd = String(d.getDate()).padStart(2, "0");
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const yyyy = d.getFullYear();
+  return `${dd}-${mm}-${yyyy}`;
 }
