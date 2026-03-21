@@ -1,0 +1,22 @@
+# PH Weeknotes
+
+> Weeknotes and rambling from Pete Hallett, a grey haired technologist — updates on strategy, architecture, delivery, design and development.
+
+This site contains weekly notes (weeknotes) written by Pete Hallett covering technology strategy, software architecture, delivery, design, and development.
+
+## Author
+
+Pete Hallett is a technologist who writes about strategy, architecture, delivery, design and development.
+
+## Content
+
+- [Weeknotes](https://weeknote.hallett.life/weeknotes): All weeknotes listed chronologically
+- [RSS Feed](https://weeknote.hallett.life/feed.xml): Subscribe to updates
+
+## Topics
+
+- Technology strategy
+- Software architecture
+- Delivery and project management
+- Design
+- Software development
