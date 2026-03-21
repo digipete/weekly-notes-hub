@@ -10,7 +10,7 @@ export default function Weeknotes() {
         Weeknotes
       </h1>
       <p className="mt-2 text-muted-foreground">
-        A running log of what the team has been working on, week by week.{" "}
+        A week by week stream of conciousness.{" "}
         <a href="/feed.xml" aria-label="Subscribe to weeknotes via RSS">
           Subscribe via RSS
         </a>
