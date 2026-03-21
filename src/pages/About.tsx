@@ -17,7 +17,8 @@ export default function About() {
         url: siteConfig.url + "/about",
         sameAs: [
           "https://linkedin.com/in/petehallett",
-          "https://github.com/petehallett",
+          "https://github.com/digipete",
+          "https://www.instagram.com/recovering.founder",
         ],
         jobTitle: "Technologist",
         knowsAbout: [
@@ -53,30 +54,30 @@ export default function About() {
           Hello, I'm {siteConfig.author}. I'm a grey haired technologist with
           a passion for building things that matter. I've spent my career
           working across strategy, architecture, delivery, design and
-          development — helping organisations make better use of technology.
+          development to help organisations make better use of technology.
         </p>
 
         <p>
           I believe in pragmatic approaches to complex problems, working in the
-          open, and building teams that deliver. My work sits at the
+          open and building teams that deliver. My work sits at the
           intersection of technology leadership and hands-on delivery, which
-          means I'm as comfortable shaping strategy as I am writing code.
+          means I'm as comfortable shaping strategy as rolling up my sleeves and doing the hard yards.
         </p>
 
         <p>
-          These weeknotes are a place for me to think out loud — sharing what
-          I'm working on, what I'm learning, and what's catching my attention.
-          They're part reflection, part accountability, and part an attempt to
+          These weeknotes are a place for me to think out loud, mostly sharing what
+          I'm working on, what I'm learning and what's catching my attention.
+          They're part reflection, part accountability and part an attempt to
           connect with others working on similar things.
         </p>
 
         <h2>What I do</h2>
 
         <p>
-          I work on digital strategy, technical architecture, and delivery. I'm
-          interested in how organisations can use technology to genuinely
-          improve outcomes — not just digitise existing processes, but rethink
-          them entirely.
+          I work on digital strategy, technical architecture, and delivery. 
+          Currently this is with <a href="https://www.gov.uk/government/organisations/government-digital-service">GDS</a> where I head up technology as a thing for the <a href="https://customerfirst.campaign.gov.uk">CustomerFirst</a> directorate.
+          I'm interested in connecting with people from organisations across government to chat about current approaches that genuinely
+          improve outcomes - Particularily any teams that are making use of Test & Learn as a thing for Government.
         </p>
 
         <p>My areas of focus include:</p>
@@ -84,7 +85,6 @@ export default function About() {
         <ul>
           <li>Technology strategy and architecture</li>
           <li>Digital delivery and agile ways of working</li>
-          <li>Design systems and frontend development</li>
           <li>Team building and leadership</li>
           <li>Open source and working in the open</li>
         </ul>
@@ -96,7 +96,10 @@ export default function About() {
             <a href="https://linkedin.com/in/petehallett">LinkedIn</a>
           </li>
           <li>
-            <a href="https://github.com/petehallett">GitHub</a>
+            <a href="https://github.com/digipete">GitHub</a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/recovering.founder">Instagram</a>
           </li>
         </ul>
 
