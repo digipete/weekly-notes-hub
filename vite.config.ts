@@ -103,6 +103,7 @@ ${items}
       const today = new Date().toISOString().split("T")[0];
       const sitemapUrls = [
         `  <url><loc>${baseUrl}/</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>`,
+        `  <url><loc>${baseUrl}/about</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`,
         `  <url><loc>${baseUrl}/weeknotes</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>`,
         ...notes.map(
           (n) =>

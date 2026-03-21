@@ -10,6 +10,7 @@ Pete Hallett is a technologist who writes about strategy, architecture, delivery
 
 ## Content
 
+- [About](https://weeknote.hallett.life/about): About Pete Hallett
 - [Weeknotes](https://weeknote.hallett.life/weeknotes): All weeknotes listed chronologically
 - [RSS Feed](https://weeknote.hallett.life/feed.xml): Subscribe to updates
 

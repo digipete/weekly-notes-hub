@@ -22,12 +22,18 @@ export default function Layout() {
             {siteConfig.name}
           </Link>
 
-          <div className="flex items-center gap-4 font-display text-sm">
+          <div className="flex items-center gap-5 font-display text-sm">
             <Link
               to="/weeknotes"
               className="text-muted-foreground no-underline hover:text-accent"
             >
               Weeknotes
+            </Link>
+            <Link
+              to="/about"
+              className="text-muted-foreground no-underline hover:text-accent"
+            >
+              About
             </Link>
             <a
               href="/feed.xml"
