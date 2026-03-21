@@ -1,20 +1,23 @@
 export const siteConfig = {
   /** Site name used in titles and metadata */
-  name: "Weeknotes",
+  name: "PH Weeknotes",
+
+  /** Author name for structured data */
+  author: "Pete Hallett",
 
   /** Meta description for SEO */
   description:
-    "Weeknotes from our team — updates on delivery, design and development.",
+    "Weeknotes and rambling from Pete Hallett, a grey haired technologist — updates on strategy, architecture, delivery, design and development.",
 
   /** Text shown in the hero banner */
   bannerTitle: "Weeknotes",
 
   /** Intro paragraph shown in the hero banner */
   bannerIntro:
-    "Regular updates from the team on what we're working on, what we've learned, and what's next.",
+    "Weeknotes and rambling from a grey haired technologist — updates on strategy, architecture, delivery, design and development.",
 
   /** Footer copyright / attribution text */
-  footerText: "© 2026 Weeknotes. Published with care.",
+  footerText: "© 2026 Pete Hallett. Published with care.",
 
   /**
    * Base path for GitHub Pages project hosting.

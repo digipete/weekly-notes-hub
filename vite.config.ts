@@ -98,6 +98,22 @@ ${items}
 </rss>`;
 
       fs.writeFileSync(path.join(outDir, "feed.xml"), rss, "utf-8");
+
+      // 3. Generate sitemap.xml
+      const today = new Date().toISOString().split("T")[0];
+      const sitemapUrls = [
+        `  <url><loc>${baseUrl}/</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>`,
+        `  <url><loc>${baseUrl}/weeknotes</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>`,
+        ...notes.map(
+          (n) =>
+            `  <url><loc>${baseUrl}/weeknotes/${n.slug || ""}</loc><lastmod>${n.date}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
+        ),
+      ];
+      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapUrls.join("\n")}
+</urlset>`;
+      fs.writeFileSync(path.join(outDir, "sitemap.xml"), sitemap, "utf-8");
     },
   };
 }
